@@ -1,0 +1,12 @@
+name: client-tests-workflow #Nom du Workflow
+
+on: pull_request #Ce workflow se lancera à chaque pull request
+
+jobs: # Ce workflow exécutera des "jobs"
+  test-client: #Nom du "job"
+    runs-on: ubuntu-latest #Système d'exploitation sur lequel le "job" va tourner
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2 #Action à effectuer
+      - name: Goto client and run tests
+        run: cd client && npm i && npm test
